@@ -1,13 +1,11 @@
-DROP DATABASE IF EXISTS leaguesDB;
-CREATE DATABASE leaguesDB;
+DROP DATABASE IF EXISTS avelaDB;
+CREATE DATABASE avelaDB;
 
-USE leaguesDB;
+USE avelaDB;
 
-CREATE TABLE leagues (
+CREATE TABLE movies (
     id INT(10) AUTO_INCREMENT NOT NULL,
-    league_name VARCHAR(250) NOT NULL,
-    latitude INT(10) NOT NULL,
-    longitude INT(10) NOT NULL,
-    budget INT(10) NOT NULL,
+    movie_name LONGTEXT NOT NULL,
+    likes INT(255) NOT NULL,
     PRIMARY KEY (id)
 );

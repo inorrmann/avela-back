@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: process.env.user,
   password: process.env.pw,
-  database: "leaguesDB"
+  database: "avelaDB"
 });
 
 connection.connect(function(err) {
