@@ -2,7 +2,7 @@
 
 Technologies used: React, NodeJS, MySQL
 
-![Avela-page](./league.gif)
+![Avela-page](./avela.gif)
 
 ## Instructions for running the app
 
