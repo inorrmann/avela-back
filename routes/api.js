@@ -1,26 +1,33 @@
 const router = require("express").Router();
 const connection = require("../config/config");
 
-router.get("/leagues", (req, res) => {
-  connection.query("SELECT * FROM leaguesDB.leagues WHERE budget<=?", [req.query.budget], (err, result) => {
+router.get("/movies/all", (req, res) => {
+  connection.query("SELECT * FROM avelaDB.movies", (err, result) => {
     if (err) console.log(err);
     res.json(result);
   })
 });
 
-router.post("/leagues", (req, res) => {
-  connection.query("INSERT INTO leaguesDB.leagues SET ?",
+router.post("/movies", (req, res) => {
+  connection.query("INSERT INTO avelaDB.movies SET ?",
     {
-      league_name: req.body.name,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
-      budget: req.body.budget
+      movie_name: req.body.name,
+      likes: req.body.likes,
     },
     (err, data) => {
       res.json(data);
     if(err) throw(err);
     console.log(data);
   })
-})
+});
+
+router.put("/movies", (req, res) => {
+  connection.query("UPDATE avelaDB.movies SET likes = ? WHERE id = ?", [req.body.likes, req.body.id],
+    (err, data) => {
+      res.json(data);
+    if(err) throw(err);
+    console.log(data);
+  })
+});
 
 module.exports = router;
